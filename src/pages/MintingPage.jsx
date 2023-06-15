@@ -40,7 +40,7 @@ const MintingPage = ({walletAddress}) => {
 
   return (
    <div className='flex flex-col items-center justify-center max-w-[800px]'>
-        {isMinted ? (
+        {!isMinted ? (
             <div className='flex flex-col items-center justify-center max-w-[800px]'>
                 <h1 className='text-white text-5xl font-bold'>
                     Complete Checkout<span className='text-[#DD2643]'>.</span>
