@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connectWallet, checkIfWalletIsConnected } from './utils'
+import { MintingPage } from './pages'
 
 const App = () => {
   const [walletAddress, setWalletAddress] = useState("")
@@ -16,22 +17,18 @@ const App = () => {
   }
 
   return (
-    <div className='bg-black min-h-screen'>
+    <div className='font-rubik flex flex-col min-h-screen bg-black mt-36'>
       <div className='flex flex-col items-center justify-center'>
-        <button onClick={connectWalletButton} className='bg-[#E5E5E5] hover:bg-gray-400 hover: px-10 py-2'>
-            <h1 className='font-bold'>
-              Connect Wallet
-            </h1>
-        </button>
-
-        <div className='text-white'>
           {isWalletConnected ? (
-            <h1>{walletAddress}</h1>
+            <MintingPage walletAddress={walletAddress} />
           ) : (
-            <h1>Not connected</h1>
+            <button onClick={connectWalletButton} className='bg-[#E5E5E5] hover:bg-gray-400 px-10 py-2'>
+              <h1 className='font-bold'>
+                Connect Wallet
+              </h1>
+            </button>
           )}
         </div>
-      </div>
     </div>
   )
 }
